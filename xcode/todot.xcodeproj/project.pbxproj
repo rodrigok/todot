@@ -14,13 +14,14 @@
 		729073A918B8C81500C61F54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073A818B8C81500C61F54 /* main.m */; };
 		729073AD18B8C81500C61F54 /* TDTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073AC18B8C81500C61F54 /* TDTAppDelegate.m */; };
 		729073B018B8C81500C61F54 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729073AE18B8C81500C61F54 /* Main.storyboard */; };
-		729073B318B8C81500C61F54 /* TDTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073B218B8C81500C61F54 /* TDTViewController.m */; };
 		729073B518B8C81500C61F54 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 729073B418B8C81500C61F54 /* Images.xcassets */; };
 		729073BC18B8C81600C61F54 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729073BB18B8C81600C61F54 /* XCTest.framework */; };
 		729073BD18B8C81600C61F54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7290739C18B8C81500C61F54 /* Foundation.framework */; };
 		729073BE18B8C81600C61F54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729073A018B8C81500C61F54 /* UIKit.framework */; };
 		729073C618B8C81600C61F54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 729073C418B8C81600C61F54 /* InfoPlist.strings */; };
 		729073C818B8C81600C61F54 /* todotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073C718B8C81600C61F54 /* todotTests.m */; };
+		729073D318B8D73B00C61F54 /* TDTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */; };
+		729073DC18B8E36400C61F54 /* TLSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +46,16 @@
 		729073AB18B8C81500C61F54 /* TDTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDTAppDelegate.h; sourceTree = "<group>"; };
 		729073AC18B8C81500C61F54 /* TDTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDTAppDelegate.m; sourceTree = "<group>"; };
 		729073AF18B8C81500C61F54 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		729073B118B8C81500C61F54 /* TDTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TDTViewController.h; sourceTree = "<group>"; };
-		729073B218B8C81500C61F54 /* TDTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TDTViewController.m; sourceTree = "<group>"; };
 		729073B418B8C81500C61F54 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		729073BA18B8C81600C61F54 /* todotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = todotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		729073BB18B8C81600C61F54 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		729073C318B8C81600C61F54 /* todotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "todotTests-Info.plist"; sourceTree = "<group>"; };
 		729073C518B8C81600C61F54 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		729073C718B8C81600C61F54 /* todotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = todotTests.m; sourceTree = "<group>"; };
+		729073D118B8D73B00C61F54 /* TDTCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTCollectionViewController.h; sourceTree = "<group>"; };
+		729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCollectionViewController.m; sourceTree = "<group>"; };
+		729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSpringFlowLayout.h; sourceTree = "<group>"; };
+		729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSpringFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +118,10 @@
 				729073AB18B8C81500C61F54 /* TDTAppDelegate.h */,
 				729073AC18B8C81500C61F54 /* TDTAppDelegate.m */,
 				729073AE18B8C81500C61F54 /* Main.storyboard */,
-				729073B118B8C81500C61F54 /* TDTViewController.h */,
-				729073B218B8C81500C61F54 /* TDTViewController.m */,
+				729073D118B8D73B00C61F54 /* TDTCollectionViewController.h */,
+				729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */,
+				729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */,
+				729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */,
 				729073B418B8C81500C61F54 /* Images.xcassets */,
 				729073A318B8C81500C61F54 /* Supporting Files */,
 			);
@@ -252,7 +257,8 @@
 			files = (
 				729073A918B8C81500C61F54 /* main.m in Sources */,
 				729073AD18B8C81500C61F54 /* TDTAppDelegate.m in Sources */,
-				729073B318B8C81500C61F54 /* TDTViewController.m in Sources */,
+				729073D318B8D73B00C61F54 /* TDTCollectionViewController.m in Sources */,
+				729073DC18B8E36400C61F54 /* TLSpringFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,6 +467,7 @@
 				729073CD18B8C81600C61F54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		729073CE18B8C81600C61F54 /* Build configuration list for PBXNativeTarget "todotTests" */ = {
 			isa = XCConfigurationList;
@@ -469,6 +476,7 @@
 				729073D018B8C81600C61F54 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
