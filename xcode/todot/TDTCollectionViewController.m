@@ -64,6 +64,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
     UILabel *dot2 = (UILabel *) [pan.view.superview viewWithTag:400];
     UILabel *dot3 = (UILabel *) [pan.view.superview viewWithTag:500];
     UILabel *dot4 = (UILabel *) [pan.view.superview viewWithTag:600];
+    UILabel *dot5 = (UILabel *) [pan.view.superview viewWithTag:700];
     
     alpha = (location.x - originalPosition.x) / 100;
     if (alpha > 1) {
@@ -76,11 +77,35 @@ static NSString * CellIdentifier = @"cellIdentifier";
     dot2.alpha = alpha;
     dot3.alpha = alpha;
     dot4.alpha = alpha;
+    dot5.alpha = alpha;
 
     
+    NSArray *dots = @[dot1, dot2, dot3, dot4, dot5];
+    
+    for (int i = 0; i < dots.count; i++) {
+        UILabel *dot = [dots objectAtIndex:i];
+        if (location.x > dot.bounds.origin.x - 20 && location.x < dot.bounds.origin.x + 20) {
+            NSLog(@"asd");
+            location.x = dot.bounds.origin.x + 10;
+            break;
+        }
+    }
+    
+//    if (location.x > 103 && location.x < 143) {
+//        location.x = 123;
+//    }
+    
+
     location.y = pan.view.center.y;
     
-    pan.view.center = location;
+    [UIView animateWithDuration: 0.2
+                     animations: ^ {
+                        pan.view.center = location;
+                     }
+                     completion: ^(BOOL finished) {
+                     
+                     }];
+
     
     if (pan.state == UIGestureRecognizerStateEnded) {
         [UIView animateWithDuration: 0.2
@@ -100,6 +125,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
                              dot2.alpha = 0;
                              dot3.alpha = 0;
                              dot4.alpha = 0;
+                             dot5.alpha = 0;
                          }
                          completion: ^(BOOL finished) {
                              
