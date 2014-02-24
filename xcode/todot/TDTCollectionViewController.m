@@ -84,27 +84,27 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
     for (int i = 0; i < dots.count; i++) {
         UILabel *dot = [dots objectAtIndex:i];
-        if (location.x > dot.bounds.origin.x - 20 && location.x < dot.bounds.origin.x + 20) {
-            NSLog(@"asd");
-            location.x = dot.bounds.origin.x + 10;
+        if (location.x > dot.center.x - 22 && location.x < dot.center.x + 22) {
+            location.x = dot.center.x;
             break;
         }
     }
-    
-//    if (location.x > 103 && location.x < 143) {
-//        location.x = 123;
-//    }
-    
 
     location.y = pan.view.center.y;
+
     
-    [UIView animateWithDuration: 0.2
-                     animations: ^ {
-                        pan.view.center = location;
-                     }
-                     completion: ^(BOOL finished) {
-                     
-                     }];
+    if (ABS(pan.view.center.x - location.x) > 21) {
+        [UIView animateWithDuration: 0.3
+                         animations: ^ {
+                             pan.view.center = location;
+                         }
+                         completion: ^(BOOL finished) {
+                             
+                         }];
+
+    } else {
+        pan.view.center = location;
+    }
 
     
     if (pan.state == UIGestureRecognizerStateEnded) {
