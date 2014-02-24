@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B2FC21D18BB6E9000787713 /* Todot.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */; };
+		0B2FC21F18BB710100787713 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2FC21E18BB710100787713 /* CoreData.framework */; };
+		0B2FC22118BB716D00787713 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2FC22018BB716D00787713 /* libsqlite3.dylib */; };
+		0B2FC22718BB782700787713 /* Tasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2FC22618BB782700787713 /* Tasks.m */; };
 		7290739D18B8C81500C61F54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7290739C18B8C81500C61F54 /* Foundation.framework */; };
 		7290739F18B8C81500C61F54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7290739E18B8C81500C61F54 /* CoreGraphics.framework */; };
 		729073A118B8C81500C61F54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729073A018B8C81500C61F54 /* UIKit.framework */; };
@@ -35,6 +39,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B2FC21C18BB6E9000787713 /* Todot.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Todot.xcdatamodel; sourceTree = "<group>"; };
+		0B2FC21E18BB710100787713 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		0B2FC22018BB716D00787713 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		0B2FC22518BB782700787713 /* Tasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tasks.h; sourceTree = "<group>"; };
+		0B2FC22618BB782700787713 /* Tasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tasks.m; sourceTree = "<group>"; };
 		7290739918B8C81500C61F54 /* todot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7290739C18B8C81500C61F54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7290739E18B8C81500C61F54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,7 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2FC22118BB716D00787713 /* libsqlite3.dylib in Frameworks */,
 				7290739F18B8C81500C61F54 /* CoreGraphics.framework in Frameworks */,
+				0B2FC21F18BB710100787713 /* CoreData.framework in Frameworks */,
 				729073A118B8C81500C61F54 /* UIKit.framework in Frameworks */,
 				7290739D18B8C81500C61F54 /* Foundation.framework in Frameworks */,
 			);
@@ -104,6 +115,8 @@
 		7290739B18B8C81500C61F54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0B2FC22018BB716D00787713 /* libsqlite3.dylib */,
+				0B2FC21E18BB710100787713 /* CoreData.framework */,
 				7290739C18B8C81500C61F54 /* Foundation.framework */,
 				7290739E18B8C81500C61F54 /* CoreGraphics.framework */,
 				729073A018B8C81500C61F54 /* UIKit.framework */,
@@ -120,6 +133,9 @@
 				729073AE18B8C81500C61F54 /* Main.storyboard */,
 				729073D118B8D73B00C61F54 /* TDTCollectionViewController.h */,
 				729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */,
+				0B2FC22518BB782700787713 /* Tasks.h */,
+				0B2FC22618BB782700787713 /* Tasks.m */,
+				0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */,
 				729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */,
 				729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */,
 				729073B418B8C81500C61F54 /* Images.xcassets */,
@@ -255,8 +271,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2FC22718BB782700787713 /* Tasks.m in Sources */,
 				729073A918B8C81500C61F54 /* main.m in Sources */,
 				729073AD18B8C81500C61F54 /* TDTAppDelegate.m in Sources */,
+				0B2FC21D18BB6E9000787713 /* Todot.xcdatamodeld in Sources */,
 				729073D318B8D73B00C61F54 /* TDTCollectionViewController.m in Sources */,
 				729073DC18B8E36400C61F54 /* TLSpringFlowLayout.m in Sources */,
 			);
@@ -479,6 +497,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0B2FC21C18BB6E9000787713 /* Todot.xcdatamodel */,
+			);
+			currentVersion = 0B2FC21C18BB6E9000787713 /* Todot.xcdatamodel */;
+			path = Todot.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7290739118B8C81500C61F54 /* Project object */;
 }
