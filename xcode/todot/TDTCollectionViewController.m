@@ -121,7 +121,8 @@ static NSString * CellIdentifier = @"cellIdentifier";
                             options: UIViewAnimationOptionCurveEaseInOut
                          animations: ^ {
                              pan.view.center = originalPosition;
-                             ((UILabel *)pan.view).textColor = originalColor;
+//                             ((UILabel *)pan.view).textColor = originalColor;
+                             label.textColor = ((UILabel *)pan.view).textColor;
                          }
                          completion: ^(BOOL finished) {
 
