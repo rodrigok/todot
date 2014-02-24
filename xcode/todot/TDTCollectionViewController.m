@@ -97,8 +97,9 @@ static NSString * CellIdentifier = @"cellIdentifier";
 
     
     if ([task color] != nil) {
-        text.textColor = [UIColor colorWithCIColor:[CIColor colorWithString:[task color]]];
-        dot.textColor = [UIColor colorWithCIColor:[CIColor colorWithString:[task color]]];
+        UIColor *color = [UIColor colorWithCIColor:[CIColor colorWithString:task.color]];
+        text.textColor = [UIColor colorWithCGColor:color.CGColor];
+        dot.textColor = text.textColor;
     } else {
         text.textColor = [UIColor colorWithRed:255/255.0 green:179/255.0 blue:153/255.0 alpha:1];
         dot.textColor = [UIColor colorWithRed:255/255.0 green:179/255.0 blue:153/255.0 alpha:1];
