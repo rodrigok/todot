@@ -10,6 +10,7 @@
 
 @interface TDTCollectionViewController () {
     CGPoint originalPosition;
+    UIColor *originalColor;
 }
 
 @end
@@ -45,7 +46,10 @@ static NSString * CellIdentifier = @"cellIdentifier";
 {
     if (pan.state == UIGestureRecognizerStateBegan) {
         originalPosition = pan.view.center;
+        originalColor = [((UILabel *)pan.view) textColor];
     }
+    
+    UIColor *newColor = originalColor;
     
     CGPoint location = [pan locationInView:pan.view.superview];
     
@@ -86,6 +90,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
         UILabel *dot = [dots objectAtIndex:i];
         if (location.x > dot.center.x - 22 && location.x < dot.center.x + 22) {
             location.x = dot.center.x;
+            newColor = dot.textColor;
             break;
         }
     }
@@ -99,11 +104,14 @@ static NSString * CellIdentifier = @"cellIdentifier";
                              pan.view.center = location;
                          }
                          completion: ^(BOOL finished) {
-                             
+                             if (finished == YES) {
+                                 ((UILabel *)pan.view).textColor = newColor;
+                             }
                          }];
 
     } else {
         pan.view.center = location;
+//        ((UILabel *)pan.view).textColor = newColor;
     }
 
     
@@ -113,6 +121,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
                             options: UIViewAnimationOptionCurveEaseInOut
                          animations: ^ {
                              pan.view.center = originalPosition;
+                             ((UILabel *)pan.view).textColor = originalColor;
                          }
                          completion: ^(BOOL finished) {
 
