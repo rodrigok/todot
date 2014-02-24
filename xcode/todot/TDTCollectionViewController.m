@@ -7,10 +7,14 @@
 //
 
 #import "TDTCollectionViewController.h"
+#import "TDTAppDelegate.h"
+#import "Tasks.h"
 
 @interface TDTCollectionViewController () {
     CGPoint originalPosition;
     UIColor *originalColor;
+    NSManagedObjectContext *context;
+    NSArray *tasks;
 }
 
 @end
@@ -22,22 +26,90 @@ static NSString * CellIdentifier = @"cellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSError *error;
+    
+
+    
+    // Buscar o Contexto
+	context = [(TDTAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    [self getData];
+	
+	// Marcas
+	Tasks *honda = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
+	honda.name = [NSString stringWithFormat:@"Teste %d", tasks.count];
+	
+    Tasks *ford = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
+	ford.name = [NSString stringWithFormat:@"Teste %d", tasks.count + 1];
+	
+	
+	// Busca os objetos
+	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:context];
+	[fetchRequest setEntity:entity];
+	
+	// Salva o Contexto
+	if (![context save:&error])
+	{
+		NSLog(@"Erro ao salvar: %@", [error localizedDescription]);
+	}
+	else
+	{
+		NSLog(@"Salvo com sucesso!");
+	}
+    
+    [self getData];
+}
+
+- (void)getData {
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:context];
+	[fetchRequest setEntity:entity];
+    
+	// Listar os objetos
+    tasks = [context executeFetchRequest:fetchRequest error:&error];
+//	for (Tasks *task in tasks)
+//	{
+//		//NSLog(@"Modelo: %@ %@",modelo.daMarca.nome, modelo.nome);
+//		[task name];
+//		
+//		// Deletar objeto
+//        //		[context deleteObject:task];
+//	}
+
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 100;
+    return tasks.count;
 }
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *otherCell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    UILabel *label = (UILabel *) [otherCell viewWithTag:100];
+    Tasks *task = (Tasks *)[tasks objectAtIndex:indexPath.row];
     
+    UILabel *dot = (UILabel *) [otherCell viewWithTag:100];
+    UILabel *text = (UILabel *) [otherCell viewWithTag:200];
+    text.text = [task name];
 
-    UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveObject:)];
-    pan.minimumNumberOfTouches = 1;
-    [label addGestureRecognizer:pan];
+    
+    if ([task color] != nil) {
+        text.textColor = [UIColor colorWithCIColor:[CIColor colorWithString:[task color]]];
+        dot.textColor = [UIColor colorWithCIColor:[CIColor colorWithString:[task color]]];
+    } else {
+        text.textColor = [UIColor colorWithRed:255/255.0 green:179/255.0 blue:153/255.0 alpha:1];
+        dot.textColor = [UIColor colorWithRed:255/255.0 green:179/255.0 blue:153/255.0 alpha:1];
+    }
+        
+    
+    if ([[dot gestureRecognizers] count] == 0) {
+        UIPanGestureRecognizer * pan = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(moveObject:)];
+        pan.minimumNumberOfTouches = 1;
+        [dot addGestureRecognizer:pan];
+    }
     
     return otherCell;
 }
@@ -123,6 +195,14 @@ static NSString * CellIdentifier = @"cellIdentifier";
                              pan.view.center = originalPosition;
 //                             ((UILabel *)pan.view).textColor = originalColor;
                              label.textColor = ((UILabel *)pan.view).textColor;
+                             
+                              NSIndexPath *indexPath = [self.collectionView indexPathForCell: (UICollectionViewCell *)pan.view.superview.superview];
+                             
+                             Tasks *task = [tasks objectAtIndex:indexPath.row];
+                             task.color = [[CIColor colorWithCGColor:label.textColor.CGColor] stringRepresentation];
+                             NSError *error;
+                             [context save:&error];
+                             
                          }
                          completion: ^(BOOL finished) {
 
