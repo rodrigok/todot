@@ -58,6 +58,10 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
     [self changeToolbarToEditing:NO];
     
+    [self saveNewTask];
+}
+
+- (void)saveNewTask {
     Tasks *task = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
     
 	task.name = addTextField.text;
@@ -67,7 +71,13 @@ static NSString * CellIdentifier = @"cellIdentifier";
     }
     [self getData];
     [self.collectionView reloadData];
+    addTextField.text = @"";
+}
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self changeToolbarToEditing:NO];
+    [self saveNewTask];
+    return YES;
 }
 
 
@@ -84,6 +94,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
     UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
     self.navigationItem.rightBarButtonItem = buttonAdd;
+    
     
 //    NSError *error;
     

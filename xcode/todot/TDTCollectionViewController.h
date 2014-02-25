@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TDTCollectionViewController : UICollectionViewController
+@interface TDTCollectionViewController : UICollectionViewController <UITextFieldDelegate>
 
 @end

@@ -79,7 +79,10 @@
                             <rect key="frame" x="29" y="7" width="262" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" keyboardType="alphabet" keyboardAppearance="alert"/>
+                            <connections>
+                                <outlet property="delegate" destination="YDo-Gx-Slg" id="eq0-NR-Peg"/>
+                            </connections>
                         </textField>
                     </navigationItem>
                     <connections>
