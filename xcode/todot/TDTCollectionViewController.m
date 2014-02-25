@@ -37,33 +37,20 @@
 static NSString * CellIdentifier = @"cellIdentifier";
 
 
-- (void)changeToolbarToEditing: (BOOL) editing {
-    if (editing) {
-        addTextField.hidden = NO;
-        [addTextField becomeFirstResponder];
-        UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(addButtonAction:)];
-        self.navigationItem.rightBarButtonItem = buttonAdd;
-        buttonAdd.tag = 1;
-        return;
-    }
-    
-    addTextField.hidden = YES;
-    [addTextField endEditing:YES];
-    UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
-    self.navigationItem.rightBarButtonItem = buttonAdd;
-    buttonAdd.tag = 0;
+- (IBAction)touchAddTextField:(id)sender {
+    [self changeToolbarToEditing:YES];
 }
 
-- (void)addButtonAction:(id)sender {
-    if (((UIBarButtonItem *)sender).tag == 0) {
-        [self changeToolbarToEditing:YES];
+
+- (void)changeToolbarToEditing: (BOOL) editing {
+    if (editing) {
+        [addTextField becomeFirstResponder];
         return;
     }
     
-    [self changeToolbarToEditing:NO];
-    
-    [self saveNewTask];
+    [addTextField endEditing:YES];
 }
+
 
 - (void)saveNewTask {
     Tasks *task = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
@@ -108,10 +95,6 @@ static NSString * CellIdentifier = @"cellIdentifier";
     iNeedToDoColor = [UIColor colorWithHexString:@"#AE6122"];
     urgentColor = [UIColor colorWithHexString:@"#C5321C"];
     doneColor = [UIColor colorWithHexString:@"#04A3AE"];
-    
-    
-    UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
-    self.navigationItem.rightBarButtonItem = buttonAdd;
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestures)];
     gesture.cancelsTouchesInView = NO;
