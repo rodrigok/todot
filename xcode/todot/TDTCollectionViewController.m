@@ -57,6 +57,17 @@ static NSString * CellIdentifier = @"cellIdentifier";
     }
     
     [self changeToolbarToEditing:NO];
+    
+    Tasks *task = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
+    
+	task.name = addTextField.text;
+    
+    NSError *error;
+    if (![context save:&error]) {
+    }
+    [self getData];
+    [self.collectionView reloadData];
+
 }
 
 
@@ -74,20 +85,20 @@ static NSString * CellIdentifier = @"cellIdentifier";
     UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
     self.navigationItem.rightBarButtonItem = buttonAdd;
     
-    NSError *error;
+//    NSError *error;
     
 
     
     // Buscar o Contexto
 	context = [(TDTAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    [self getData];
+//    [self getData];
 	
-	// Marcas
-	Tasks *honda = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
-	honda.name = [NSString stringWithFormat:@"Teste %d", tasks.count];
-	
-    Tasks *ford = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
-	ford.name = [NSString stringWithFormat:@"Teste %d", tasks.count + 1];
+//	// Marcas
+//	Tasks *honda = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
+//	honda.name = [NSString stringWithFormat:@"Teste %d", tasks.count];
+//	
+//    Tasks *ford = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
+//	ford.name = [NSString stringWithFormat:@"Teste %d", tasks.count + 1];
 	
 	
 	// Busca os objetos
@@ -95,16 +106,16 @@ static NSString * CellIdentifier = @"cellIdentifier";
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:context];
 	[fetchRequest setEntity:entity];
 	
-	// Salva o Contexto
-	if (![context save:&error])
-	{
-		NSLog(@"Erro ao salvar: %@", [error localizedDescription]);
-	}
-	else
-	{
-		NSLog(@"Salvo com sucesso!");
-	}
-    
+//	// Salva o Contexto
+//	if (![context save:&error])
+//	{
+//		NSLog(@"Erro ao salvar: %@", [error localizedDescription]);
+//	}
+//	else
+//	{
+//		NSLog(@"Salvo com sucesso!");
+//	}
+//    
     [self getData];
 }
 
