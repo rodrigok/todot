@@ -28,6 +28,7 @@
 		729073C818B8C81600C61F54 /* todotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073C718B8C81600C61F54 /* todotTests.m */; };
 		729073D318B8D73B00C61F54 /* TDTCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */; };
 		729073DC18B8E36400C61F54 /* TLSpringFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */; };
+		72AE5B7C18BCF9670097D60E /* THSpringyFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 72AE5B7B18BCF9670097D60E /* THSpringyFlowLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,8 @@
 		729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTCollectionViewController.m; sourceTree = "<group>"; };
 		729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSpringFlowLayout.h; sourceTree = "<group>"; };
 		729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSpringFlowLayout.m; sourceTree = "<group>"; };
+		72AE5B7A18BCF9670097D60E /* THSpringyFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THSpringyFlowLayout.h; sourceTree = "<group>"; };
+		72AE5B7B18BCF9670097D60E /* THSpringyFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THSpringyFlowLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 			children = (
 				729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */,
 				729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */,
+				72AE5B7A18BCF9670097D60E /* THSpringyFlowLayout.h */,
+				72AE5B7B18BCF9670097D60E /* THSpringyFlowLayout.m */,
 				0B2FC22818BCBDD200787713 /* RKArkView.h */,
 				0B2FC22918BCBDD200787713 /* RKArkView.m */,
 				0B2FC22C18BCBE8D00787713 /* UIColor+hexString.h */,
@@ -293,6 +298,7 @@
 				729073A918B8C81500C61F54 /* main.m in Sources */,
 				0B2FC22E18BCBE8D00787713 /* UIColor+hexString.m in Sources */,
 				729073AD18B8C81500C61F54 /* TDTAppDelegate.m in Sources */,
+				72AE5B7C18BCF9670097D60E /* THSpringyFlowLayout.m in Sources */,
 				0B2FC21D18BB6E9000787713 /* Todot.xcdatamodeld in Sources */,
 				0B2FC22A18BCBDD200787713 /* RKArkView.m in Sources */,
 				729073D318B8D73B00C61F54 /* TDTCollectionViewController.m in Sources */,
