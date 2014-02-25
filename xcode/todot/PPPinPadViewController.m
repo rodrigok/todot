@@ -63,13 +63,16 @@ static  CGFloat kVTPinPadViewControllerCircleRadius = 6.0f;
 
 #pragma mark Actions
 
-- (IBAction)cancelClick:(id)sender {
-    [self dismissPinPad];
+
+- (IBAction)clearClick:(id)sender {
+    [self addCircles];
+    _inputPin = [NSMutableString string];
 }
 
 - (IBAction)resetClick:(id)sender {
-    [self addCircles];
-    _inputPin = [NSMutableString string];
+    if([self.delegate respondsToSelector:@selector(resetPassword)]) {
+        [self.delegate resetPassword];
+    }
 }
 
 
@@ -168,7 +171,7 @@ static  CGFloat kVTPinPadViewControllerCircleRadius = 6.0f;
          if(_shakes >= 15)
          {
              theOneYouWannaShake.transform = CGAffineTransformIdentity;
-             [self resetClick:nil];
+             [self clearClick:nil];
              return;
          }
          _shakes++;

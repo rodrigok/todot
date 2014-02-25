@@ -13,6 +13,7 @@
 #import "UIColor+hexString.h"
 #import "THSpringyFlowLayout.h"
 #import "PPPinPadViewController.h"
+#import "UICKeyChainStore.h"
 
 @interface TDTCollectionViewController () {
     CGPoint originalPosition;
@@ -23,6 +24,8 @@
     NSManagedObjectContext *context;
     NSArray *tasks;
     BOOL logged;
+    
+    PPPinPadViewController * pinViewController;
     
     UIColor *lightColor;
     UIColor *notSoLightColor;
@@ -38,10 +41,16 @@
 
 static NSString * CellIdentifier = @"cellIdentifier";
 
+- (void)viewWillAppear:(BOOL)animated {
+    if ([UICKeyChainStore stringForKey:@"password"] == nil) {
+        [self performSegueWithIdentifier:@"cadastrePassword" sender:self];
+        return;
+    }
+}
 
 - (void)viewDidAppear:(BOOL)animated {
-    if (logged == NO) {
-        PPPinPadViewController * pinViewController = [[PPPinPadViewController alloc] init];
+    if (logged == NO && [UICKeyChainStore stringForKey:@"password"] != nil) {
+        pinViewController = [[PPPinPadViewController alloc] init];
         
         [self presentViewController:pinViewController animated:NO completion:nil];
         
@@ -50,13 +59,29 @@ static NSString * CellIdentifier = @"cellIdentifier";
     }
 }
 
-
 - (BOOL)checkPin:(NSString *)pin {
-    if ([pin isEqualToString:@"1111"]) {
+    if ([pin isEqualToString:[UICKeyChainStore stringForKey:@"password"]]) {
         logged = YES;
+        [self getData];
+        [self reloadData];
         return YES;
     }
     return NO;
+}
+
+- (void)resetPassword {
+    [UICKeyChainStore removeAllItems];
+    
+	for (Tasks *task in tasks) {
+        [context deleteObject:task];
+	}
+    
+    [self saveContext];
+    
+    [self reloadData];
+    
+    [pinViewController dismissViewControllerAnimated:NO completion:nil];
+    [self performSegueWithIdentifier:@"cadastrePassword" sender:self];
 }
 
 - (NSInteger)pinLenght {
@@ -78,6 +103,11 @@ static NSString * CellIdentifier = @"cellIdentifier";
     [addTextField endEditing:YES];
 }
 
+- (void)reloadData {
+    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) resetLayout];
+    [self.collectionView reloadData];
+    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) prepareLayout];
+}
 
 - (void)saveNewTask {
     Tasks *task = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
@@ -87,9 +117,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
     [self saveContext];
 
     [self getData];
-    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) resetLayout];
-    [self.collectionView reloadData];
-    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) prepareLayout];
+    [self reloadData];
 
     addTextField.text = @"";
 }
@@ -129,13 +157,6 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
     // Buscar o Contexto
 	context = [(TDTAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-	
-	// Busca os objetos
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:context];
-	[fetchRequest setEntity:entity];
-	  
-    [self getData];
 }
 
 - (void)gestures {
@@ -149,18 +170,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:context];
 	[fetchRequest setEntity:entity];
     
-	// Listar os objetos
     tasks = [context executeFetchRequest:fetchRequest error:&error];
-    
-//	for (Tasks *task in tasks)
-//	{
-//		//NSLog(@"Modelo: %@ %@",modelo.daMarca.nome, modelo.nome);
-//		[task name];
-//		
-//		// Deletar objeto
-//        //		[context deleteObject:task];
-//	}
-
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -254,9 +264,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
     [self saveContext];
     
     [self getData];
-    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) resetLayout];
-    [self.collectionView reloadData];
-    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) prepareLayout];
+    [self reloadData];
     
 }
 

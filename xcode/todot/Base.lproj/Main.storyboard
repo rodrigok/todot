@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="6WO-pl-qpR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6WO-pl-qpR">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -26,7 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <button opaque="NO" tag="1100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="cK9-I7-HYe">
+                                        <button opaque="NO" tag="1100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cK9-I7-HYe">
                                             <rect key="frame" x="263" y="10" width="49" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Deletar">
@@ -34,43 +34,43 @@
                                                 <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
-                                        <view tag="1000" contentMode="scaleToFill" id="rRb-YC-b8w">
+                                        <view tag="1000" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rRb-YC-b8w">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Limpar a casa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qxU-KB-ycI">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="200" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Limpar a casa" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxU-KB-ycI">
                                                     <rect key="frame" x="47" y="15" width="108" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <view tag="100" contentMode="scaleToFill" id="sKg-X8-tHd" customClass="RKArkView">
+                                                <view tag="100" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sKg-X8-tHd" customClass="RKArkView">
                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view alpha="0.0" tag="300" contentMode="scaleToFill" id="ivr-Px-kn5" customClass="RKArkView">
+                                                <view alpha="0.0" tag="300" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivr-Px-kn5" customClass="RKArkView">
                                                     <rect key="frame" x="105" y="0.0" width="40" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view alpha="0.0" tag="400" contentMode="scaleToFill" id="Otr-Uj-GjC" customClass="RKArkView">
+                                                <view alpha="0.0" tag="400" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Otr-Uj-GjC" customClass="RKArkView">
                                                     <rect key="frame" x="145" y="0.0" width="40" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view alpha="0.0" tag="500" contentMode="scaleToFill" id="JdG-ee-u9I" customClass="RKArkView">
+                                                <view alpha="0.0" tag="500" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JdG-ee-u9I" customClass="RKArkView">
                                                     <rect key="frame" x="185" y="0.0" width="40" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view alpha="0.0" tag="600" contentMode="scaleToFill" id="dvz-Js-j7I" customClass="RKArkView">
+                                                <view alpha="0.0" tag="600" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dvz-Js-j7I" customClass="RKArkView">
                                                     <rect key="frame" x="225" y="0.0" width="40" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <view alpha="0.0" tag="700" contentMode="scaleToFill" id="Dmy-tz-egu" customClass="RKArkView">
+                                                <view alpha="0.0" tag="700" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dmy-tz-egu" customClass="RKArkView">
                                                     <rect key="frame" x="265" y="0.0" width="40" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -104,11 +104,68 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addTextField" destination="Jiw-WB-PjT" id="zzw-0L-W8I"/>
+                        <segue destination="Y5Q-41-gL5" kind="modal" identifier="cadastrePassword" animates="NO" id="IAj-vo-Kpd"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaE-FU-iQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="695" y="4"/>
+        </scene>
+        <!--Password View Controller-->
+        <scene sceneID="lq2-Mw-Lsy">
+            <objects>
+                <viewController id="Y5Q-41-gL5" customClass="TDTPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9Bo-qy-UBE"/>
+                        <viewControllerLayoutGuide type="bottom" id="MjG-pT-MPB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X1K-bh-VO6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aep-1y-NmP">
+                                <rect key="frame" x="90" y="192" width="141" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad" keyboardAppearance="light" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textFieldEditingChanged:" destination="Y5Q-41-gL5" eventType="editingChanged" id="g11-On-m6Z"/>
+                                    <outlet property="delegate" destination="Y5Q-41-gL5" id="1Ye-TM-TV3"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Defina uma Senha" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlZ-Vi-fAc">
+                                <rect key="frame" x="88" y="163" width="141" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3K-U4-7yi">
+                                <rect key="frame" x="137" y="230" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Salvar">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveButtonTouchUpInside:" destination="Y5Q-41-gL5" eventType="touchUpInside" id="9Xj-dY-7le"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="MjG-pT-MPB" firstAttribute="top" secondItem="o3K-U4-7yi" secondAttribute="bottom" constant="308" id="HWV-g3-I3Z"/>
+                            <constraint firstItem="aep-1y-NmP" firstAttribute="top" secondItem="KlZ-Vi-fAc" secondAttribute="bottom" constant="8" id="knL-af-yjC"/>
+                            <constraint firstItem="o3K-U4-7yi" firstAttribute="top" secondItem="aep-1y-NmP" secondAttribute="bottom" constant="8" id="sZv-bL-I2Z"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="saveButton" destination="o3K-U4-7yi" id="b9x-Wg-C4L"/>
+                        <outlet property="textField" destination="aep-1y-NmP" id="vPd-q0-Bar"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cco-3Z-fNB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YHy-en-cnt">

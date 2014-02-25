@@ -33,6 +33,9 @@
 		72DB2CDA18BD361900A607A5 /* PPPinCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB2CD518BD361900A607A5 /* PPPinCircleView.m */; };
 		72DB2CDB18BD361900A607A5 /* PPPinPadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB2CD718BD361900A607A5 /* PPPinPadViewController.m */; };
 		72DB2CDC18BD361900A607A5 /* PPPinPadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72DB2CD818BD361900A607A5 /* PPPinPadViewController.xib */; };
+		72DB2CE318BD44F100A607A5 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB2CE218BD44F100A607A5 /* UICKeyChainStore.m */; };
+		72DB2CE518BD451100A607A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DB2CE418BD451100A607A5 /* Security.framework */; };
+		72DB2CE818BD47EC00A607A5 /* TDTPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB2CE718BD47EC00A607A5 /* TDTPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +88,11 @@
 		72DB2CD618BD361900A607A5 /* PPPinPadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPPinPadViewController.h; sourceTree = "<group>"; };
 		72DB2CD718BD361900A607A5 /* PPPinPadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPPinPadViewController.m; sourceTree = "<group>"; };
 		72DB2CD818BD361900A607A5 /* PPPinPadViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PPPinPadViewController.xib; sourceTree = "<group>"; };
+		72DB2CE118BD44F100A607A5 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		72DB2CE218BD44F100A607A5 /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
+		72DB2CE418BD451100A607A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		72DB2CE618BD47EC00A607A5 /* TDTPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTPasswordViewController.h; sourceTree = "<group>"; };
+		72DB2CE718BD47EC00A607A5 /* TDTPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DB2CE518BD451100A607A5 /* Security.framework in Frameworks */,
 				0B2FC22118BB716D00787713 /* libsqlite3.dylib in Frameworks */,
 				7290739F18B8C81500C61F54 /* CoreGraphics.framework in Frameworks */,
 				0B2FC21F18BB710100787713 /* CoreData.framework in Frameworks */,
@@ -124,6 +133,8 @@
 				0B2FC22918BCBDD200787713 /* RKArkView.m */,
 				0B2FC22C18BCBE8D00787713 /* UIColor+hexString.h */,
 				0B2FC22D18BCBE8D00787713 /* UIColor+hexString.m */,
+				72DB2CE118BD44F100A607A5 /* UICKeyChainStore.h */,
+				72DB2CE218BD44F100A607A5 /* UICKeyChainStore.m */,
 				72DB2CDD18BD362100A607A5 /* PinPad */,
 			);
 			name = Libs;
@@ -151,6 +162,7 @@
 		7290739B18B8C81500C61F54 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72DB2CE418BD451100A607A5 /* Security.framework */,
 				0B2FC22018BB716D00787713 /* libsqlite3.dylib */,
 				0B2FC21E18BB710100787713 /* CoreData.framework */,
 				7290739C18B8C81500C61F54 /* Foundation.framework */,
@@ -169,6 +181,8 @@
 				729073AE18B8C81500C61F54 /* Main.storyboard */,
 				729073D118B8D73B00C61F54 /* TDTCollectionViewController.h */,
 				729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */,
+				72DB2CE618BD47EC00A607A5 /* TDTPasswordViewController.h */,
+				72DB2CE718BD47EC00A607A5 /* TDTPasswordViewController.m */,
 				0B2FC22518BB782700787713 /* Tasks.h */,
 				0B2FC22618BB782700787713 /* Tasks.m */,
 				0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */,
@@ -321,12 +335,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DB2CE818BD47EC00A607A5 /* TDTPasswordViewController.m in Sources */,
 				0B2FC22718BB782700787713 /* Tasks.m in Sources */,
 				72DB2CDA18BD361900A607A5 /* PPPinCircleView.m in Sources */,
 				729073A918B8C81500C61F54 /* main.m in Sources */,
 				0B2FC22E18BCBE8D00787713 /* UIColor+hexString.m in Sources */,
 				729073AD18B8C81500C61F54 /* TDTAppDelegate.m in Sources */,
 				72AE5B7C18BCF9670097D60E /* THSpringyFlowLayout.m in Sources */,
+				72DB2CE318BD44F100A607A5 /* UICKeyChainStore.m in Sources */,
 				72DB2CDB18BD361900A607A5 /* PPPinPadViewController.m in Sources */,
 				0B2FC21D18BB6E9000787713 /* Todot.xcdatamodeld in Sources */,
 				0B2FC22A18BCBDD200787713 /* RKArkView.m in Sources */,

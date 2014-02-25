@@ -13,6 +13,7 @@
 @required
 - (NSInteger)pinLenght;
 - (BOOL)checkPin:(NSString *)pin;
+- (void)resetPassword;
 @end
 
 
