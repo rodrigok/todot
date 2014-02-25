@@ -95,6 +95,10 @@ static NSString * CellIdentifier = @"cellIdentifier";
     UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
     self.navigationItem.rightBarButtonItem = buttonAdd;
     
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestures)];
+    gesture.cancelsTouchesInView = NO;
+    [self.collectionView addGestureRecognizer:gesture];
+    
     
 //    NSError *error;
     
@@ -128,6 +132,10 @@ static NSString * CellIdentifier = @"cellIdentifier";
 //	}
 //    
     [self getData];
+}
+
+- (void)gestures {
+    [self changeToolbarToEditing:NO];
 }
 
 - (void)getData {
