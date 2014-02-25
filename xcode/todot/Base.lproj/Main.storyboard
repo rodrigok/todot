@@ -108,7 +108,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaE-FU-iQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1096" y="-6"/>
+            <point key="canvasLocation" x="695" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YHy-en-cnt">
@@ -122,12 +122,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="YDo-Gx-Slg" kind="relationship" relationship="rootViewController" id="ss2-fZ-l0s"/>
+                        <segue destination="YDo-Gx-Slg" kind="relationship" relationship="rootViewController" id="n1f-NX-KGY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="23U-K2-H8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="570" y="-6"/>
+            <point key="canvasLocation" x="207" y="4"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -12,6 +12,7 @@
 #import "RKArkView.h"
 #import "UIColor+hexString.h"
 #import "THSpringyFlowLayout.h"
+#import "PPPinPadViewController.h"
 
 @interface TDTCollectionViewController () {
     CGPoint originalPosition;
@@ -21,6 +22,7 @@
     UIColor *originalColor;
     NSManagedObjectContext *context;
     NSArray *tasks;
+    BOOL logged;
     
     UIColor *lightColor;
     UIColor *notSoLightColor;
@@ -35,6 +37,31 @@
 @implementation TDTCollectionViewController
 
 static NSString * CellIdentifier = @"cellIdentifier";
+
+
+- (void)viewDidAppear:(BOOL)animated {
+    if (logged == NO) {
+        PPPinPadViewController * pinViewController = [[PPPinPadViewController alloc] init];
+        
+        [self presentViewController:pinViewController animated:NO completion:nil];
+        
+        pinViewController.delegate = self;
+        return;
+    }
+}
+
+
+- (BOOL)checkPin:(NSString *)pin {
+    if ([pin isEqualToString:@"1111"]) {
+        logged = YES;
+        return YES;
+    }
+    return NO;
+}
+
+- (NSInteger)pinLenght {
+    return 4;
+}
 
 
 - (IBAction)touchAddTextField:(id)sender {

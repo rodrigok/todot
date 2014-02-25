@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PPPinPadViewController.h"
 
-@interface TDTCollectionViewController : UICollectionViewController <UITextFieldDelegate>
+@interface TDTCollectionViewController : UICollectionViewController <UITextFieldDelegate, PinPadPasswordProtocol>
 
 @end
