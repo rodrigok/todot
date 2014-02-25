@@ -11,9 +11,13 @@
 #import "Tasks.h"
 #import "RKArkView.h"
 #import "UIColor+hexString.h"
+#import "THSpringyFlowLayout.h"
 
 @interface TDTCollectionViewController () {
     CGPoint originalPosition;
+    CGPoint initialLocation;
+    CGFloat cellCenterDistanceFromCursor;
+    CGFloat cellCenterDistanceFromCursorY;
     UIColor *originalColor;
     NSManagedObjectContext *context;
     NSArray *tasks;
@@ -66,6 +70,14 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
 	task.name = addTextField.text;
     
+    [self saveContext];
+
+    [self getData];
+    [self.collectionView reloadData];
+    addTextField.text = @"";
+}
+
+- (void)saveContext {
     NSError *error;
     if (![context save:&error])
     {
@@ -75,10 +87,6 @@ static NSString * CellIdentifier = @"cellIdentifier";
 	{
 		NSLog(@"Salvo com sucesso!");
 	}
-
-    [self getData];
-    [self.collectionView reloadData];
-    addTextField.text = @"";
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -130,6 +138,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
 	// Listar os objetos
     tasks = [context executeFetchRequest:fetchRequest error:&error];
+    
 //	for (Tasks *task in tasks)
 //	{
 //		//NSLog(@"Modelo: %@ %@",modelo.daMarca.nome, modelo.nome);
@@ -154,6 +163,8 @@ static NSString * CellIdentifier = @"cellIdentifier";
     UILabel *text = (UILabel *) [otherCell viewWithTag:200];
     text.text = [task name];
 
+    UIView *backgroundView = [otherCell viewWithTag:1000];
+    
     
     RKArkView *dot = (RKArkView *) [otherCell viewWithTag:100];
     dot.strokeColor = lightColor;
@@ -195,12 +206,76 @@ static NSString * CellIdentifier = @"cellIdentifier";
         [dot addGestureRecognizer:pan];
     }
     
+    UIView *dragView = backgroundView;
+    
+    if ([[dragView gestureRecognizers] count] == 0) {
+        UISwipeGestureRecognizer * swipeLeft = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(showDeleteButton:)];
+        swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+        [dragView addGestureRecognizer:swipeLeft];
+    
+        UISwipeGestureRecognizer * swipeRight = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(hideDeleteButton:)];
+        swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+        [dragView addGestureRecognizer:swipeRight];
+    }
+    
+    UIButton *deleteButton = (UIButton *) [otherCell viewWithTag:1100];
+ 
+    [deleteButton addTarget:self action:@selector(deleteButtonClick:) forControlEvents:(UIControlEvents)UIControlEventTouchUpInside];
+
+    
     [self changeToolbarToEditing:NO];
     
     return otherCell;
 }
 
--(void)moveObject:(UIPanGestureRecognizer *)pan;
+- (void)deleteButtonClick: (id)sender {
+    
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell: (UICollectionViewCell *)((UIView *) sender).superview.superview];
+    
+    Tasks *task = [tasks objectAtIndex:indexPath.row];
+    
+    [context deleteObject:task];
+    
+    UIView *brackgroundView = [((UIButton *)sender).superview viewWithTag:1000];
+    brackgroundView.center = CGPointMake(160, brackgroundView.center.y);
+    [self saveContext];
+    
+    [self getData];
+    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) resetLayout];
+    [self.collectionView reloadData];
+    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) prepareLayout];
+    
+}
+
+- (void)showDeleteButton:(UIPanGestureRecognizer *)pan
+{
+    [UIView animateWithDuration: 0.2
+                          delay: 0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations: ^ {
+                         CGPoint location = CGPointMake(94, pan.view.center.y);
+                         pan.view.center = location;
+                     }
+                     completion: ^(BOOL finished) {
+                         
+                     }];
+}
+
+- (void)hideDeleteButton:(UIPanGestureRecognizer *)pan
+{
+    [UIView animateWithDuration: 0.2
+                          delay: 0
+                        options: UIViewAnimationOptionCurveEaseInOut
+                     animations: ^ {
+                         CGPoint location = CGPointMake(160, pan.view.center.y);
+                         pan.view.center = location;
+                     }
+                     completion: ^(BOOL finished) {
+                         
+                     }];
+}
+
+-(void)moveObject:(UIPanGestureRecognizer *)pan
 {
     if (pan.state == UIGestureRecognizerStateBegan) {
         originalPosition = pan.view.center;
