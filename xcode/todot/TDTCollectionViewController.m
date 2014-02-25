@@ -23,6 +23,7 @@
     UIColor *iNeedToDoColor;
     UIColor *urgentColor;
     UIColor *doneColor;
+    IBOutlet UITextField *addTextField;
 }
 
 @end
@@ -30,6 +31,34 @@
 @implementation TDTCollectionViewController
 
 static NSString * CellIdentifier = @"cellIdentifier";
+
+
+- (void)changeToolbarToEditing: (BOOL) editing {
+    if (editing) {
+        addTextField.hidden = NO;
+        [addTextField becomeFirstResponder];
+        UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(addButtonAction:)];
+        self.navigationItem.rightBarButtonItem = buttonAdd;
+        buttonAdd.tag = 1;
+        return;
+    }
+    
+    addTextField.hidden = YES;
+    [addTextField endEditing:YES];
+    UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
+    self.navigationItem.rightBarButtonItem = buttonAdd;
+    buttonAdd.tag = 0;
+}
+
+- (void)addButtonAction:(id)sender {
+    if (((UIBarButtonItem *)sender).tag == 0) {
+        [self changeToolbarToEditing:YES];
+        return;
+    }
+    
+    [self changeToolbarToEditing:NO];
+}
+
 
 - (void)viewDidLoad
 {
@@ -41,6 +70,9 @@ static NSString * CellIdentifier = @"cellIdentifier";
     urgentColor = [UIColor colorWithHexString:@"#C5321C"];
     doneColor = [UIColor colorWithHexString:@"#04A3AE"];
     
+    
+    UIBarButtonItem *buttonAdd = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addButtonAction:)];
+    self.navigationItem.rightBarButtonItem = buttonAdd;
     
     NSError *error;
     
@@ -149,6 +181,8 @@ static NSString * CellIdentifier = @"cellIdentifier";
         pan.minimumNumberOfTouches = 1;
         [dot addGestureRecognizer:pan];
     }
+    
+    [self changeToolbarToEditing:NO];
     
     return otherCell;
 }

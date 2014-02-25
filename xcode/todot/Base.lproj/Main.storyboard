@@ -73,7 +73,18 @@
                             <outlet property="delegate" destination="YDo-Gx-Slg" id="JYZ-fo-xla"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="Ke9-O3-nf3"/>
+                    <navigationItem key="navigationItem" id="Ke9-O3-nf3">
+                        <nil key="title"/>
+                        <textField key="titleView" hidden="YES" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="Jiw-WB-PjT">
+                            <rect key="frame" x="29" y="7" width="262" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="addTextField" destination="Jiw-WB-PjT" id="zzw-0L-W8I"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MaE-FU-iQT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
