@@ -67,8 +67,15 @@ static NSString * CellIdentifier = @"cellIdentifier";
 	task.name = addTextField.text;
     
     NSError *error;
-    if (![context save:&error]) {
-    }
+    if (![context save:&error])
+    {
+		NSLog(@"Erro ao salvar: %@", [error localizedDescription]);
+	}
+	else
+	{
+		NSLog(@"Salvo com sucesso!");
+	}
+
     [self getData];
     [self.collectionView reloadData];
     addTextField.text = @"";
@@ -99,38 +106,14 @@ static NSString * CellIdentifier = @"cellIdentifier";
     gesture.cancelsTouchesInView = NO;
     [self.collectionView addGestureRecognizer:gesture];
     
-    
-//    NSError *error;
-    
-
-    
     // Buscar o Contexto
 	context = [(TDTAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-//    [self getData];
-	
-//	// Marcas
-//	Tasks *honda = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
-//	honda.name = [NSString stringWithFormat:@"Teste %d", tasks.count];
-//	
-//    Tasks *ford = (Tasks *)[NSEntityDescription insertNewObjectForEntityForName:@"Tasks" inManagedObjectContext:context];
-//	ford.name = [NSString stringWithFormat:@"Teste %d", tasks.count + 1];
-	
 	
 	// Busca os objetos
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Tasks" inManagedObjectContext:context];
 	[fetchRequest setEntity:entity];
-	
-//	// Salva o Contexto
-//	if (![context save:&error])
-//	{
-//		NSLog(@"Erro ao salvar: %@", [error localizedDescription]);
-//	}
-//	else
-//	{
-//		NSLog(@"Salvo com sucesso!");
-//	}
-//    
+	  
     [self getData];
 }
 
