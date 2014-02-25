@@ -72,6 +72,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
 - (void)resetPassword {
     [UICKeyChainStore removeAllItems];
     
+    [self getData];
 	for (Tasks *task in tasks) {
         [context deleteObject:task];
 	}
