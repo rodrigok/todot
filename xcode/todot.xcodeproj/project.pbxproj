@@ -11,6 +11,8 @@
 		0B2FC21F18BB710100787713 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2FC21E18BB710100787713 /* CoreData.framework */; };
 		0B2FC22118BB716D00787713 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B2FC22018BB716D00787713 /* libsqlite3.dylib */; };
 		0B2FC22718BB782700787713 /* Tasks.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2FC22618BB782700787713 /* Tasks.m */; };
+		0B2FC22A18BCBDD200787713 /* RKArkView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2FC22918BCBDD200787713 /* RKArkView.m */; };
+		0B2FC22E18BCBE8D00787713 /* UIColor+hexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B2FC22D18BCBE8D00787713 /* UIColor+hexString.m */; };
 		7290739D18B8C81500C61F54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7290739C18B8C81500C61F54 /* Foundation.framework */; };
 		7290739F18B8C81500C61F54 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7290739E18B8C81500C61F54 /* CoreGraphics.framework */; };
 		729073A118B8C81500C61F54 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 729073A018B8C81500C61F54 /* UIKit.framework */; };
@@ -44,6 +46,10 @@
 		0B2FC22018BB716D00787713 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		0B2FC22518BB782700787713 /* Tasks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tasks.h; sourceTree = "<group>"; };
 		0B2FC22618BB782700787713 /* Tasks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tasks.m; sourceTree = "<group>"; };
+		0B2FC22818BCBDD200787713 /* RKArkView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKArkView.h; sourceTree = "<group>"; };
+		0B2FC22918BCBDD200787713 /* RKArkView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKArkView.m; sourceTree = "<group>"; };
+		0B2FC22C18BCBE8D00787713 /* UIColor+hexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+hexString.h"; sourceTree = "<group>"; };
+		0B2FC22D18BCBE8D00787713 /* UIColor+hexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+hexString.m"; sourceTree = "<group>"; };
 		7290739918B8C81500C61F54 /* todot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7290739C18B8C81500C61F54 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		7290739E18B8C81500C61F54 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,6 +99,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0B2FC22B18BCBDD900787713 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */,
+				729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */,
+				0B2FC22818BCBDD200787713 /* RKArkView.h */,
+				0B2FC22918BCBDD200787713 /* RKArkView.m */,
+				0B2FC22C18BCBE8D00787713 /* UIColor+hexString.h */,
+				0B2FC22D18BCBE8D00787713 /* UIColor+hexString.m */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
 		7290739018B8C81500C61F54 = {
 			isa = PBXGroup;
 			children = (
@@ -136,8 +155,7 @@
 				0B2FC22518BB782700787713 /* Tasks.h */,
 				0B2FC22618BB782700787713 /* Tasks.m */,
 				0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */,
-				729073DA18B8E36400C61F54 /* TLSpringFlowLayout.h */,
-				729073DB18B8E36400C61F54 /* TLSpringFlowLayout.m */,
+				0B2FC22B18BCBDD900787713 /* Libs */,
 				729073B418B8C81500C61F54 /* Images.xcassets */,
 				729073A318B8C81500C61F54 /* Supporting Files */,
 			);
@@ -273,8 +291,10 @@
 			files = (
 				0B2FC22718BB782700787713 /* Tasks.m in Sources */,
 				729073A918B8C81500C61F54 /* main.m in Sources */,
+				0B2FC22E18BCBE8D00787713 /* UIColor+hexString.m in Sources */,
 				729073AD18B8C81500C61F54 /* TDTAppDelegate.m in Sources */,
 				0B2FC21D18BB6E9000787713 /* Todot.xcdatamodeld in Sources */,
+				0B2FC22A18BCBDD200787713 /* RKArkView.m in Sources */,
 				729073D318B8D73B00C61F54 /* TDTCollectionViewController.m in Sources */,
 				729073DC18B8E36400C61F54 /* TLSpringFlowLayout.m in Sources */,
 			);

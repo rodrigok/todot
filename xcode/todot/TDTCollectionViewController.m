@@ -9,12 +9,20 @@
 #import "TDTCollectionViewController.h"
 #import "TDTAppDelegate.h"
 #import "Tasks.h"
+#import "RKArkView.h"
+#import "UIColor+hexString.h"
 
 @interface TDTCollectionViewController () {
     CGPoint originalPosition;
     UIColor *originalColor;
     NSManagedObjectContext *context;
     NSArray *tasks;
+    
+    UIColor *lightColor;
+    UIColor *notSoLightColor;
+    UIColor *iNeedToDoColor;
+    UIColor *urgentColor;
+    UIColor *doneColor;
 }
 
 @end
@@ -26,6 +34,13 @@ static NSString * CellIdentifier = @"cellIdentifier";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    lightColor = [UIColor colorWithHexString:@"#BBB218"];
+    notSoLightColor = [UIColor colorWithHexString:@"#C5961C"];
+    iNeedToDoColor = [UIColor colorWithHexString:@"#AE6122"];
+    urgentColor = [UIColor colorWithHexString:@"#C5321C"];
+    doneColor = [UIColor colorWithHexString:@"#04A3AE"];
+    
     
     NSError *error;
     
@@ -91,18 +106,41 @@ static NSString * CellIdentifier = @"cellIdentifier";
     
     Tasks *task = (Tasks *)[tasks objectAtIndex:indexPath.row];
     
-    UILabel *dot = (UILabel *) [otherCell viewWithTag:100];
     UILabel *text = (UILabel *) [otherCell viewWithTag:200];
     text.text = [task name];
 
     
+    RKArkView *dot = (RKArkView *) [otherCell viewWithTag:100];
+    dot.strokeColor = lightColor;
+    dot.radius = 5;
+    dot.strokeWidth = 10;
+    
+    RKArkView *circle1 = (RKArkView *) [otherCell viewWithTag:300];
+    circle1.strokeColor = lightColor;
+    RKArkView *circle2 = (RKArkView *) [otherCell viewWithTag:400];
+    circle2.strokeColor = notSoLightColor;
+    RKArkView *circle3 = (RKArkView *) [otherCell viewWithTag:500];
+    circle3.strokeColor = iNeedToDoColor;
+    RKArkView *circle4 = (RKArkView *) [otherCell viewWithTag:600];
+    circle4.strokeColor = urgentColor;
+    RKArkView *circle5 = (RKArkView *) [otherCell viewWithTag:700];
+    circle5.strokeColor = doneColor;
+    
+    NSArray *circles = @[circle1,circle2,circle3,circle4,circle5];
+    
+    for (int i = 0; i < circles.count; i++) {
+        RKArkView *c = [circles objectAtIndex:i];
+        c.strokeWidth = 2;
+        c.radius = 12;
+    }
+    
     if ([task color] != nil) {
         UIColor *color = [UIColor colorWithCIColor:[CIColor colorWithString:task.color]];
         text.textColor = [UIColor colorWithCGColor:color.CGColor];
-        dot.textColor = text.textColor;
+        dot.strokeColor = text.textColor;
     } else {
-        text.textColor = [UIColor colorWithRed:255/255.0 green:179/255.0 blue:153/255.0 alpha:1];
-        dot.textColor = [UIColor colorWithRed:255/255.0 green:179/255.0 blue:153/255.0 alpha:1];
+        text.textColor = lightColor;
+        dot.strokeColor = lightColor;
     }
         
     
@@ -119,7 +157,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
 {
     if (pan.state == UIGestureRecognizerStateBegan) {
         originalPosition = pan.view.center;
-        originalColor = [((UILabel *)pan.view) textColor];
+        originalColor = [((RKArkView *)pan.view) strokeColor];
     }
     
     UIColor *newColor = originalColor;
@@ -160,10 +198,10 @@ static NSString * CellIdentifier = @"cellIdentifier";
     NSArray *dots = @[dot1, dot2, dot3, dot4, dot5];
     
     for (int i = 0; i < dots.count; i++) {
-        UILabel *dot = [dots objectAtIndex:i];
+        RKArkView *dot = [dots objectAtIndex:i];
         if (location.x > dot.center.x - 22 && location.x < dot.center.x + 22) {
             location.x = dot.center.x;
-            newColor = dot.textColor;
+            newColor = dot.strokeColor;
             break;
         }
     }
@@ -178,7 +216,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
                          }
                          completion: ^(BOOL finished) {
                              if (finished == YES) {
-                                 ((UILabel *)pan.view).textColor = newColor;
+                                 ((RKArkView *)pan.view).strokeColor = newColor;
                              }
                          }];
 
@@ -195,7 +233,7 @@ static NSString * CellIdentifier = @"cellIdentifier";
                          animations: ^ {
                              pan.view.center = originalPosition;
 //                             ((UILabel *)pan.view).textColor = originalColor;
-                             label.textColor = ((UILabel *)pan.view).textColor;
+                             label.textColor = ((RKArkView *)pan.view).strokeColor;
                              
                               NSIndexPath *indexPath = [self.collectionView indexPathForCell: (UICollectionViewCell *)pan.view.superview.superview];
                              
