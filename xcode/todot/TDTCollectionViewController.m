@@ -73,7 +73,10 @@ static NSString * CellIdentifier = @"cellIdentifier";
     [self saveContext];
 
     [self getData];
+    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) resetLayout];
     [self.collectionView reloadData];
+    [((THSpringyFlowLayout *)self.collectionView.collectionViewLayout) prepareLayout];
+
     addTextField.text = @"";
 }
 
