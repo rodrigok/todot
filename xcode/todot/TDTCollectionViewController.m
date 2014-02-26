@@ -146,11 +146,15 @@ static NSString * CellIdentifier = @"cellIdentifier";
 {
     [super viewDidLoad];
     
-    lightColor = [UIColor colorWithHexString:@"#BBB218"];
-    notSoLightColor = [UIColor colorWithHexString:@"#C5961C"];
-    iNeedToDoColor = [UIColor colorWithHexString:@"#AE6122"];
-    urgentColor = [UIColor colorWithHexString:@"#C5321C"];
-    doneColor = [UIColor colorWithHexString:@"#04A3AE"];
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"Properties" ofType:@"plist"];
+    NSDictionary *plist = [[ NSDictionary alloc] initWithContentsOfFile:plistPath];
+
+    
+    lightColor = [UIColor colorWithHexString:[plist objectForKey:@"lightColor"]];
+    notSoLightColor = [UIColor colorWithHexString:[plist objectForKey:@"notSoLightColor"]];
+    iNeedToDoColor = [UIColor colorWithHexString:[plist objectForKey:@"iNeedToDoColor"]];
+    urgentColor = [UIColor colorWithHexString:[plist objectForKey:@"urgentColor"]];
+    doneColor = [UIColor colorWithHexString:[plist objectForKey:@"doneColor"]];
     
     UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestures)];
     gesture.cancelsTouchesInView = NO;

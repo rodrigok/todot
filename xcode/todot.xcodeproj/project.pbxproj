@@ -36,6 +36,7 @@
 		72DB2CE318BD44F100A607A5 /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB2CE218BD44F100A607A5 /* UICKeyChainStore.m */; };
 		72DB2CE518BD451100A607A5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DB2CE418BD451100A607A5 /* Security.framework */; };
 		72DB2CE818BD47EC00A607A5 /* TDTPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72DB2CE718BD47EC00A607A5 /* TDTPasswordViewController.m */; };
+		72DB2CEB18BD6E1800A607A5 /* Properties.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72DB2CEA18BD6E1800A607A5 /* Properties.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		72DB2CE418BD451100A607A5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		72DB2CE618BD47EC00A607A5 /* TDTPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDTPasswordViewController.h; sourceTree = "<group>"; };
 		72DB2CE718BD47EC00A607A5 /* TDTPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TDTPasswordViewController.m; sourceTree = "<group>"; };
+		72DB2CEA18BD6E1800A607A5 /* Properties.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Properties.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,9 +185,8 @@
 				729073D218B8D73B00C61F54 /* TDTCollectionViewController.m */,
 				72DB2CE618BD47EC00A607A5 /* TDTPasswordViewController.h */,
 				72DB2CE718BD47EC00A607A5 /* TDTPasswordViewController.m */,
-				0B2FC22518BB782700787713 /* Tasks.h */,
-				0B2FC22618BB782700787713 /* Tasks.m */,
-				0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */,
+				72DB2CEA18BD6E1800A607A5 /* Properties.plist */,
+				72DB2CE918BD6DFA00A607A5 /* Models */,
 				0B2FC22B18BCBDD900787713 /* Libs */,
 				729073B418B8C81500C61F54 /* Images.xcassets */,
 				729073A318B8C81500C61F54 /* Supporting Files */,
@@ -234,6 +235,16 @@
 				72DB2CD818BD361900A607A5 /* PPPinPadViewController.xib */,
 			);
 			name = PinPad;
+			sourceTree = "<group>";
+		};
+		72DB2CE918BD6DFA00A607A5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0B2FC22518BB782700787713 /* Tasks.h */,
+				0B2FC22618BB782700787713 /* Tasks.m */,
+				0B2FC21B18BB6E9000787713 /* Todot.xcdatamodeld */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 				729073A718B8C81500C61F54 /* InfoPlist.strings in Resources */,
 				72DB2CDC18BD361900A607A5 /* PPPinPadViewController.xib in Resources */,
 				729073B018B8C81500C61F54 /* Main.storyboard in Resources */,
+				72DB2CEB18BD6E1800A607A5 /* Properties.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
