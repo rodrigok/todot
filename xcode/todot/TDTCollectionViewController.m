@@ -23,7 +23,6 @@
     UIColor *originalColor;
     NSManagedObjectContext *context;
     NSArray *tasks;
-    BOOL logged;
     
     PPPinPadViewController * pinViewController;
     
@@ -49,6 +48,8 @@ static NSString * CellIdentifier = @"cellIdentifier";
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    BOOL logged = [[NSUserDefaults standardUserDefaults] boolForKey:@"logged"];
+    
     if (logged == NO && [UICKeyChainStore stringForKey:@"password"] != nil) {
         pinViewController = [[PPPinPadViewController alloc] init];
         
@@ -56,12 +57,16 @@ static NSString * CellIdentifier = @"cellIdentifier";
         
         pinViewController.delegate = self;
         return;
+    } else {
+        [self getData];
+        [self reloadData];
     }
 }
 
 - (BOOL)checkPin:(NSString *)pin {
     if ([pin isEqualToString:[UICKeyChainStore stringForKey:@"password"]]) {
-        logged = YES;
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"logged"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self getData];
         [self reloadData];
         return YES;
