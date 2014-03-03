@@ -165,7 +165,6 @@ static NSString * CellIdentifier = @"cellIdentifier";
     gesture.cancelsTouchesInView = NO;
     [self.collectionView addGestureRecognizer:gesture];
     
-    // Buscar o Contexto
 	context = [(TDTAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 
