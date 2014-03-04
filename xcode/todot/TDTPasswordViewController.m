@@ -25,16 +25,19 @@
     self.saveButton.enabled = NO;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)viewDidAppear:(BOOL)animated
+{
     [self.textField becomeFirstResponder];
 }
 
-- (IBAction)saveButtonTouchUpInside:(UIButton *)sender {
+- (IBAction)saveButtonTouchUpInside:(UIButton *)sender
+{
     [UICKeyChainStore setString:self.textField.text forKey:@"password"];
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
-- (IBAction)textFieldEditingChanged:(UITextField *)sender {
+- (IBAction)textFieldEditingChanged:(UITextField *)sender
+{
     self.saveButton.enabled = [sender.text length] == 4;
 }
 
